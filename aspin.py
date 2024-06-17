@@ -347,7 +347,7 @@ def aspin():
         current_char, new_char = substitution_parser(substitution)
         passphrase_raw = passphrase_raw.replace(current_char, new_char)
 
-    print(passphrase_raw)
+    print(f"\nPassphrase Generated:\n{passphrase_raw}")
 
 
 if __name__ == "__main__":
