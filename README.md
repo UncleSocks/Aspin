@@ -1,4 +1,9 @@
 # Aspin: Filipino-centric Passphrase Generator
+
+Aspin [ˈʔas.pɪn], short for Asong Pinoy, is a term used for mixed-breed street dogs.
+
+![aspin_01](https://github.com/UncleSocks/aspin-filipino-centric-passphrase-generator/assets/79778613/7bccf670-a404-41fc-8ab3-489d7da828f7)
+
 Why create another passphrase generator? 
 
 I wanted to create a passphrase generator that focuses on Philippine dialects as its wordlists. This passphrase generator has the generic features of specifying the word count, word case, and separator; this also supports character substitution, separator multiplier, and inclusion of randomized numbers and/or special characters.
