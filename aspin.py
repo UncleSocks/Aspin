@@ -95,7 +95,7 @@ class ArgumentParser:
             default=None,
             dest="substitution",
             help=(
-                "Specify a character substitution using the '>' symbol between your old and new character (e.g., l>!). "
+                "Specify a character substitution using the equals (=) symbol between your old and new character (e.g., l=!). "
                 "Default value is None."
             )
         )
@@ -175,7 +175,7 @@ def separator_multiplier(separator, multiplier):
 
 def substitution_parser(substitution):
 
-    parsed_substitution = substitution.split(">")
+    parsed_substitution = substitution.split("=")
     current_char = parsed_substitution[0]
     new_char = parsed_substitution[1]
     return current_char, new_char
