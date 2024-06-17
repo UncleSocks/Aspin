@@ -8,3 +8,5 @@ Why create another passphrase generator?
 
 I wanted to create a passphrase generator that focuses on Philippine dialects as its wordlists -- "mixing" words, separators, case, and others to generate a more secure passphrase. This passphrase generator has the generic features of specifying the word count, word case, and separator; this also supports character substitution, separator multiplier, and inclusion of randomized numbers and/or special characters.
 Furthermore, this allowed me to practice my Python skills and at the same time contribute to the information security knowledge body.
+
+I also included a folder of my photograpphs of aspins to raise awareness.
