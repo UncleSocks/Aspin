@@ -175,10 +175,14 @@ def separator_multiplier(separator, multiplier):
 
 def substitution_parser(substitution):
 
-    parsed_substitution = substitution.split("=")
-    current_char = parsed_substitution[0]
-    new_char = parsed_substitution[1]
-    return current_char, new_char
+    if substitution:
+        parsed_substitution = substitution.split("=")
+        current_char = parsed_substitution[0]
+        new_char = parsed_substitution[1]
+        return current_char, new_char
+    
+    else:
+        return
 
 
 def parameter_parser(parameter_dict):
@@ -225,8 +229,8 @@ class InteractiveGeneration():
         self.separator_count = self.verify_int_input(f"Enter separator count (default {self.separator_count})", self.separator_count)
         self.numbers = self.verify_bool_input(f"Include numbers (default {self.numbers}): ")
         self.special_characters = self.verify_bool_input(f"Include special characters (default {self.special_characters}): ")
-        self.substitution = input(f"Specify character substitution (default {self.substitution}): ")
-        self.word_case = input (f"Word case (default {self.word_case}): ")
+        self.substitution = input(f"Specify character substitution (default {self.substitution}): ") or self.substitution
+        self.word_case = input (f"Word case (default {self.word_case}): ") or self.word_case
 
     
     def output(self):
@@ -336,13 +340,10 @@ def aspin():
     wordlist = nums_and_special_chars.special_chars_nums_process(numbers, special_characters)
     
     wordlist = WordCase(wordlist, word_case).process()
-
-    if substitution is not None:
-        current_char, new_char = substitution_parser(substitution)
     
     passphrase_raw = f'{separator}'.join(wordlist)
 
-    if substitution is not None:
+    if substitution and substitution is not None:
         current_char, new_char = substitution_parser(substitution)
         passphrase_raw = passphrase_raw.replace(current_char, new_char)
 
