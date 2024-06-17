@@ -12,7 +12,16 @@ Furthermore, this allowed me to practice my Python skills and at the same time c
 I also included a folder of my photographs to raise awareness to aspins.
 ```
 aspin.py -l 5 -s * -sC 3 -N -S -c randomize -x a=@
-SAulI#0***PAngb@hIN#0***bibIG@n/9***TeKNoLohiy@~0***P@GpAp@SAL@m@t?7
+
+Passphrase Generated:
+@LPAS.2***P@glAL@IB/0***ItuWAD=8***sALIGWIl(5***SuGid,2
+```
+The above example looks very complicated, but this would be ideal if you need extra security. Specifying lesser arguments can result in a more memorable passphrase:
+```
+aspin.py -l 5 -s - -sC 3 -N -c capitalize
+
+Passphrase Generated:
+Mahigit9---Nakakabit6---Maulol1---Tukuyin9---Kalinga5
 ```
 
 ## Usage and Available Arguments
@@ -30,3 +39,15 @@ Below you will find the list of available options. Each of these options/argumen
 - `-x` or `--SUBSTITUTION` :  Specify a character substitution using the '>' symbol between your old and new character (e.g., l>!). Default value is None.
 - `-w` or `--WORDLIST` : Specify the wordlist file location. Default is the tagalog.txt file.
 - `-i` or `--INTERACTIVE` : The program will ask for user inputs to generate the passphrase. Default value is False.
+
+### Word Case Options
+- lowercase: All characters are in lowercase
+- uppercase: All characters are in uppercase
+- capitalize: Begining character of each word is in uppercase
+- randomize: Random uppercase and lowercase on each word
+
+### Numbers and Special Characters
+When specifying the `-N` or `--NUMBERS` argument, it will append a random number on each word. Similarly, when specifying `-S` or `-SPECIALCHARS`, it will also append a special character on each word.
+
+## Roadmap
+I will be adding other Philippine dialect wordlists as wekk as English support. At the time of writing, I considered this project as a practice for OOP (Classes) and Python in genera but we will see where this would go.
