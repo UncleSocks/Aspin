@@ -76,9 +76,9 @@ class ArgumentParser:
         self.parser.add_argument(
             "-w", '--WORDLIST',
             type=str,
-            default="filipino.txt",
+            default="tagalog.txt",
             dest="wordlist",
-            help="Specify the wordlist file location. Default is the filipino.txt file."
+            help="Specify the wordlist file location. Default is the tagalog.txt file."
         )
         
         self.parser.add_argument(
