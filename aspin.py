@@ -49,6 +49,14 @@ class ArgumentParser:
         )
 
         self.parser.add_argument(
+            "-n", "--GENERATENUMBER",
+            type=int,
+            default=1,
+            dest="generate_number",
+            help="Specify the number of passphrases to be generated. Default value is 1."
+        )
+
+        self.parser.add_argument(
             "-s", "--SEPARATOR",
             type=str,
             default=" ",
@@ -132,6 +140,7 @@ class ArgumentParser:
 
         return {
             'word_length': self.parser.parse_args().word_length,
+            'generate_number': self.parser.parse_args().generate_number,
             'separator': self.parser.parse_args().separator,
             'separator_count': self.parser.parse_args().separator_count,
             'numbers': self.parser.parse_args().numbers,
@@ -198,6 +207,7 @@ def substitution_parser(substitution):
 def parameter_parser(parameter_dict):
     
     word_length = parameter_dict['word_length']
+    generate_number = parameter_dict['generate_number']
     separator = parameter_dict['separator']
     separator_count = parameter_dict['separator_count']
     numbers = parameter_dict['numbers']
@@ -207,8 +217,8 @@ def parameter_parser(parameter_dict):
     wordlist = parameter_dict['wordlist']
     wordlist_combine = parameter_dict['wordlist_combine']
 
-    return word_length, separator, separator_count, numbers, special_characters, substitution, word_case, \
-        wordlist, wordlist_combine
+    return word_length, generate_number, separator, separator_count, numbers, \
+        special_characters, substitution, word_case, wordlist, wordlist_combine
 
 
 class InteractiveGeneration():
@@ -216,6 +226,7 @@ class InteractiveGeneration():
     def __init__(self):
         
         self.word_length = 5
+        self.generate_number = 1
         self.separator = " "
         self.separator_count = 1
         self.numbers = False
@@ -240,6 +251,7 @@ class InteractiveGeneration():
     def _collect_user_inputs(self):
         
         self.word_length = self.verify_int_input(f"Enter passphrase word count (default {self.word_length}): ", self.word_length)
+        self.generate_number = self.verify_int_input(f"Number of passphrase to generate (default {self.generate_number}): ", self.generate_number)
         self.separator = input(f"Separator character (default space (default '{self.separator}')): ").strip() or self.separator
         self.separator_count = self.verify_int_input(f"Enter separator count (default {self.separator_count}): ", self.separator_count)
         self.numbers = self.verify_bool_input(f"Include numbers (default {self.numbers}): ")
@@ -254,6 +266,7 @@ class InteractiveGeneration():
         
         return {
             'word_length': self.word_length,
+            'generate_number': self.generate_number, 
             'separator': self.separator,
             'separator_count': self.separator_count,
             'numbers': self.numbers,
@@ -347,10 +360,46 @@ class WordCase:
             ValueError(f"ERR01: Unsupported word case method: {self.word_case}")
 
 
+def banner():
+
+    aspin_banner = """
+                                                                                                   
+                                                                                                   
+                                                                                                   
+                                                                                                   
+             ████                                               ██                                 
+          █    ███                                            ███                                  
+          ████  ██              ███                                                                
+      █     ███████████          ██       ███       ██                            █████████        
+      ████ █████  ███    ███     ██      ███         ███          ████████      █████ ████████     
+        ████         █████████   ███    ██████       ████       ████    ██    ███      ███  ███    
+       ███         ████     ███  ███  ███    ███    ███       █████     ███  ███       ███   ███   
+      ███        ████       ██    ██ ███   ████     ███    ████  ██     ██  ███        ███    ███  
+      ███      ████        ██     █████     ███      ███████      █         ███         ██    ███  
+       ███  █████                 ████       ███                             ██       ████    ███  
+        ██████                       ██   ███████                                     █            
+                                   ██████                                          ███████         
+                                     ██                                              ██                                                                                   
+                                                                                                                       
+                                ASPIN: Filipino-centric Passphrase Generator     
+
+
+    [+] Generates randomized passphrases
+    [+] Use the `-h` option for help
+    
+    @unclesocks
+    https://github.com/UncleSocks/aspin-filipino-centric-passphrase-generator
+    --------------------------------------------------------------------------------------------------------                                                                                                
+    """
+    return print(aspin_banner)
+
 def aspin():
     
+    banner()
+
     argument_parser = ArgumentParser()
     argument = argument_parser.parse_arguments()
+    init_generate_count = 0
 
     if argument.interactive:
         user_input_parameters = InteractiveGeneration()
@@ -359,7 +408,7 @@ def aspin():
     else:
         parameter_output = argument_parser.argument_output()
         
-    word_length, separator, separator_count, numbers, special_characters, \
+    word_length, generate_number, separator, separator_count, numbers, special_characters, \
         substitution, word_case, wordlist, wordlist_combine = parameter_parser(parameter_output)
     
     wordlist_list = []
@@ -368,24 +417,27 @@ def aspin():
     if wordlist_combine and wordlist_combine is not None:
         wordlist_list.append(wordlist_combine)
     
-    process_wordlist = WordlistProcess(wordlist_list)
+    print("\n\tPassphrase Generated:\n\t")
+    while init_generate_count < generate_number:
+        process_wordlist = WordlistProcess(wordlist_list)
 
-    wordlist = process_wordlist.process_wordlist(word_length)
+        wordlist = process_wordlist.process_wordlist(word_length)
 
-    separator = separator_multiplier(separator, separator_count)
-    nums_and_special_chars = NumbersAndSpecialChars(wordlist, word_length)
-    wordlist = nums_and_special_chars.special_chars_nums_process(numbers, special_characters)
-    
-    wordlist = WordCase(wordlist, word_case).process()
-    
-    passphrase_raw = f'{separator}'.join(wordlist)
+        multiplied_separator = separator_multiplier(separator, separator_count)
+        nums_and_special_chars = NumbersAndSpecialChars(wordlist, word_length)
+        wordlist = nums_and_special_chars.special_chars_nums_process(numbers, special_characters)
+        
+        wordlist = WordCase(wordlist, word_case).process()
+        
+        passphrase_raw = f'{multiplied_separator}'.join(wordlist)
 
-    if substitution and substitution is not None:
-        current_char, new_char = substitution_parser(substitution)
-        passphrase_raw = passphrase_raw.replace(current_char, new_char)
+        if substitution and substitution is not None:
+            current_char, new_char = substitution_parser(substitution)
+            passphrase_raw = passphrase_raw.replace(current_char, new_char)
 
-    print(f"\nPassphrase Generated:\n{passphrase_raw}")
-
+        print(f"\t{passphrase_raw}")
+        init_generate_count += 1
+    print("\n")
 
 if __name__ == "__main__":
     aspin()
