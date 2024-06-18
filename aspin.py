@@ -107,6 +107,14 @@ class ArgumentParser:
             dest="wordlist",
             help="Specify the wordlist file location. Default is the tagalog.txt file."
         )
+
+        self.parser.add_argument(
+            "-wC", "--WORDLISTCOMBINE",
+            type=str,
+            default=None,
+            dest="wordlist_combine",
+            help="Specify a second language wordlist to be combined. Default value is None."
+        )
         
         self.parser.add_argument(
             "-i", "--INTERACTIVE",
@@ -129,7 +137,9 @@ class ArgumentParser:
             'numbers': self.parser.parse_args().numbers,
             'special_characters': self.parser.parse_args().special_characters,
             'substitution': self.parser.parse_args().substitution,
-            'word_case': self.parser.parse_args().word_case
+            'word_case': self.parser.parse_args().word_case,
+            'wordlist': self.parser.parse_args().wordlist,
+            'wordlist_combine': self.parser.parse_args().wordlist_combine
         }    
 
 
@@ -194,8 +204,11 @@ def parameter_parser(parameter_dict):
     special_characters = parameter_dict['special_characters']
     substitution = parameter_dict['substitution']
     word_case = parameter_dict['word_case']
+    wordlist = parameter_dict['wordlist']
+    wordlist_combine = parameter_dict['wordlist_combine']
 
-    return word_length, separator, separator_count, numbers, special_characters, substitution, word_case
+    return word_length, separator, separator_count, numbers, special_characters, substitution, word_case, \
+        wordlist, wordlist_combine
 
 
 class InteractiveGeneration():
@@ -209,6 +222,8 @@ class InteractiveGeneration():
         self.special_characters = False
         self.substitution = None
         self.word_case = "lowercase"
+        self.wordlist = "./wordlist/tagalog.txt"
+        self.wordlist_combine = None
 
         self._collect_user_inputs()
 
@@ -226,11 +241,13 @@ class InteractiveGeneration():
         
         self.word_length = self.verify_int_input(f"Enter passphrase word count (default {self.word_length}): ", self.word_length)
         self.separator = input(f"Separator character (default space (default '{self.separator}')): ").strip() or self.separator
-        self.separator_count = self.verify_int_input(f"Enter separator count (default {self.separator_count})", self.separator_count)
+        self.separator_count = self.verify_int_input(f"Enter separator count (default {self.separator_count}): ", self.separator_count)
         self.numbers = self.verify_bool_input(f"Include numbers (default {self.numbers}): ")
         self.special_characters = self.verify_bool_input(f"Include special characters (default {self.special_characters}): ")
         self.substitution = input(f"Specify character substitution (default {self.substitution}): ") or self.substitution
         self.word_case = input (f"Word case (default {self.word_case}): ") or self.word_case
+        self.wordlist = input(f"Wordlist file path (defult {self.wordlist}): ") or self.wordlist
+        self.wordlist_combine = input(f"Combine another wordlist (default {self.wordlist_combine}): ") or self.wordlist_combine
 
     
     def output(self):
@@ -242,34 +259,48 @@ class InteractiveGeneration():
             'numbers': self.numbers,
             'special_characters': self.special_characters,
             'substitution': self.substitution,
-            'word_case': self.word_case
+            'word_case': self.word_case,
+            'wordlist': self.wordlist,
+            'wordlist_combine': self.wordlist_combine
         }
 
 
 class WordlistProcess:
 
-    def __init__(self, filepath):
-        self.filepath = filepath
+    def __init__(self, filepaths):
+        self.filepaths = filepaths
 
     def count_lines(self):
-        with open(self.filepath, 'rb') as file:
-            lines_sum = sum(1 for _ in file) 
-            #The underscore (_) is a common variable placeholder for variable values not being used.
+        
+        filepath_dict = {}
+        for filepath in self.filepaths:
+        
+            with open(filepath, 'rb') as file:
+                lines_sum = sum(1 for _ in file) 
+                #The underscore (_) is a common variable placeholder for variable values not being used.
+                filepath_dict.update({filepath:lines_sum})
 
-        return lines_sum
+        return filepath_dict
     
-    def get_word(self, line_number):
-        with open(self.filepath, 'r') as file:
+    def get_word(self, line_number, chosen_filepath):
+        
+        with open(chosen_filepath, 'r') as file:
             for current_line, line in enumerate(file, start=1):
                 if current_line == line_number:
                     return line.strip()
                 
     def process_wordlist(self, word_length):
-        lines_sum = self.count_lines()
+        
+        filepath_lines_sum = self.count_lines()
         wordlist = []
+
         while len(wordlist) < word_length:
-            line_number = random.randint(1, lines_sum)
-            current_word = self.get_word(line_number)
+            
+            randomized_filepath_index = random.randint(0,len(self.filepaths) - 1)
+            chosen_filepath = self.filepaths[randomized_filepath_index]
+        
+            line_number = random.randint(1, filepath_lines_sum[chosen_filepath])
+            current_word = self.get_word(line_number, chosen_filepath)
 
             if current_word and current_word not in wordlist:
                 wordlist.append(current_word)
@@ -321,8 +352,6 @@ def aspin():
     argument_parser = ArgumentParser()
     argument = argument_parser.parse_arguments()
 
-    process_wordlist = WordlistProcess(argument.wordlist)
-
     if argument.interactive:
         user_input_parameters = InteractiveGeneration()
         parameter_output = user_input_parameters.output()
@@ -331,7 +360,15 @@ def aspin():
         parameter_output = argument_parser.argument_output()
         
     word_length, separator, separator_count, numbers, special_characters, \
-        substitution, word_case = parameter_parser(parameter_output)
+        substitution, word_case, wordlist, wordlist_combine = parameter_parser(parameter_output)
+    
+    wordlist_list = []
+    wordlist_list.append(wordlist)
+
+    if wordlist_combine and wordlist_combine is not None:
+        wordlist_list.append(wordlist_combine)
+    
+    process_wordlist = WordlistProcess(wordlist_list)
 
     wordlist = process_wordlist.process_wordlist(word_length)
 
