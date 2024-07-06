@@ -49,6 +49,14 @@ class ArgumentParser:
         )
 
         self.parser.add_argument(
+            "-n", "--GENERATENUMBER",
+            type=int,
+            default=1,
+            dest="generate_number",
+            help="Specify the number of passphrases to be generated. Default value is 1."
+        )
+
+        self.parser.add_argument(
             "-s", "--SEPARATOR",
             type=str,
             default=" ",
@@ -107,6 +115,14 @@ class ArgumentParser:
             dest="wordlist",
             help="Specify the wordlist file location. Default is the tagalog.txt file."
         )
+
+        self.parser.add_argument(
+            "-wC", "--WORDLISTCOMBINE",
+            type=str,
+            default=None,
+            dest="wordlist_combine",
+            help="Specify a second language wordlist to be combined. Default value is None."
+        )
         
         self.parser.add_argument(
             "-i", "--INTERACTIVE",
@@ -124,12 +140,15 @@ class ArgumentParser:
 
         return {
             'word_length': self.parser.parse_args().word_length,
+            'generate_number': self.parser.parse_args().generate_number,
             'separator': self.parser.parse_args().separator,
             'separator_count': self.parser.parse_args().separator_count,
             'numbers': self.parser.parse_args().numbers,
             'special_characters': self.parser.parse_args().special_characters,
             'substitution': self.parser.parse_args().substitution,
-            'word_case': self.parser.parse_args().word_case
+            'word_case': self.parser.parse_args().word_case,
+            'wordlist': self.parser.parse_args().wordlist,
+            'wordlist_combine': self.parser.parse_args().wordlist_combine
         }    
 
 
@@ -188,14 +207,18 @@ def substitution_parser(substitution):
 def parameter_parser(parameter_dict):
     
     word_length = parameter_dict['word_length']
+    generate_number = parameter_dict['generate_number']
     separator = parameter_dict['separator']
     separator_count = parameter_dict['separator_count']
     numbers = parameter_dict['numbers']
     special_characters = parameter_dict['special_characters']
     substitution = parameter_dict['substitution']
     word_case = parameter_dict['word_case']
+    wordlist = parameter_dict['wordlist']
+    wordlist_combine = parameter_dict['wordlist_combine']
 
-    return word_length, separator, separator_count, numbers, special_characters, substitution, word_case
+    return word_length, generate_number, separator, separator_count, numbers, \
+        special_characters, substitution, word_case, wordlist, wordlist_combine
 
 
 class InteractiveGeneration():
@@ -203,12 +226,15 @@ class InteractiveGeneration():
     def __init__(self):
         
         self.word_length = 5
+        self.generate_number = 1
         self.separator = " "
         self.separator_count = 1
         self.numbers = False
         self.special_characters = False
         self.substitution = None
         self.word_case = "lowercase"
+        self.wordlist = "./wordlist/tagalog.txt"
+        self.wordlist_combine = None
 
         self._collect_user_inputs()
 
@@ -225,51 +251,69 @@ class InteractiveGeneration():
     def _collect_user_inputs(self):
         
         self.word_length = self.verify_int_input(f"Enter passphrase word count (default {self.word_length}): ", self.word_length)
+        self.generate_number = self.verify_int_input(f"Number of passphrase to generate (default {self.generate_number}): ", self.generate_number)
         self.separator = input(f"Separator character (default space (default '{self.separator}')): ").strip() or self.separator
-        self.separator_count = self.verify_int_input(f"Enter separator count (default {self.separator_count})", self.separator_count)
+        self.separator_count = self.verify_int_input(f"Enter separator count (default {self.separator_count}): ", self.separator_count)
         self.numbers = self.verify_bool_input(f"Include numbers (default {self.numbers}): ")
         self.special_characters = self.verify_bool_input(f"Include special characters (default {self.special_characters}): ")
         self.substitution = input(f"Specify character substitution (default {self.substitution}): ") or self.substitution
         self.word_case = input (f"Word case (default {self.word_case}): ") or self.word_case
+        self.wordlist = input(f"Wordlist file path (defult {self.wordlist}): ") or self.wordlist
+        self.wordlist_combine = input(f"Combine another wordlist (default {self.wordlist_combine}): ") or self.wordlist_combine
 
     
     def output(self):
         
         return {
             'word_length': self.word_length,
+            'generate_number': self.generate_number, 
             'separator': self.separator,
             'separator_count': self.separator_count,
             'numbers': self.numbers,
             'special_characters': self.special_characters,
             'substitution': self.substitution,
-            'word_case': self.word_case
+            'word_case': self.word_case,
+            'wordlist': self.wordlist,
+            'wordlist_combine': self.wordlist_combine
         }
 
 
 class WordlistProcess:
 
-    def __init__(self, filepath):
-        self.filepath = filepath
+    def __init__(self, filepaths):
+        self.filepaths = filepaths
 
     def count_lines(self):
-        with open(self.filepath, 'rb') as file:
-            lines_sum = sum(1 for _ in file) 
-            #The underscore (_) is a common variable placeholder for variable values not being used.
+        
+        filepath_dict = {}
+        for filepath in self.filepaths:
+        
+            with open(filepath, 'rb') as file:
+                lines_sum = sum(1 for _ in file) 
+                #The underscore (_) is a common variable placeholder for variable values not being used.
+                filepath_dict.update({filepath:lines_sum})
 
-        return lines_sum
+        return filepath_dict
     
-    def get_word(self, line_number):
-        with open(self.filepath, 'r') as file:
+    def get_word(self, line_number, chosen_filepath):
+        
+        with open(chosen_filepath, 'r') as file:
             for current_line, line in enumerate(file, start=1):
                 if current_line == line_number:
                     return line.strip()
                 
     def process_wordlist(self, word_length):
-        lines_sum = self.count_lines()
+        
+        filepath_lines_sum = self.count_lines()
         wordlist = []
+
         while len(wordlist) < word_length:
-            line_number = random.randint(1, lines_sum)
-            current_word = self.get_word(line_number)
+            
+            randomized_filepath_index = random.randint(0,len(self.filepaths) - 1)
+            chosen_filepath = self.filepaths[randomized_filepath_index]
+        
+            line_number = random.randint(1, filepath_lines_sum[chosen_filepath])
+            current_word = self.get_word(line_number, chosen_filepath)
 
             if current_word and current_word not in wordlist:
                 wordlist.append(current_word)
@@ -316,12 +360,46 @@ class WordCase:
             ValueError(f"ERR01: Unsupported word case method: {self.word_case}")
 
 
+def banner():
+
+    aspin_banner = """
+                                                                                                   
+                                                                                                   
+                                                                                                   
+                                                                                                   
+             ████                                               ██                                 
+          █    ███                                            ███                                  
+          ████  ██              ███                                                                
+      █     ███████████          ██       ███       ██                            █████████        
+      ████ █████  ███    ███     ██      ███         ███          ████████      █████ ████████     
+        ████         █████████   ███    ██████       ████       ████    ██    ███      ███  ███    
+       ███         ████     ███  ███  ███    ███    ███       █████     ███  ███       ███   ███   
+      ███        ████       ██    ██ ███   ████     ███    ████  ██     ██  ███        ███    ███  
+      ███      ████        ██     █████     ███      ███████      █         ███         ██    ███  
+       ███  █████                 ████       ███                             ██       ████    ███  
+        ██████                       ██   ███████                                     █            
+                                   ██████                                          ███████         
+                                     ██                                              ██                                                                                   
+                                                                                                                       
+                                ASPIN: Filipino-centric Passphrase Generator     
+
+
+    [+] Generates randomized passphrases
+    [+] Use the `-h` option for help
+    
+    @unclesocks
+    https://github.com/UncleSocks/aspin-filipino-centric-passphrase-generator
+    --------------------------------------------------------------------------------------------------------                                                                                                
+    """
+    return print(aspin_banner)
+
 def aspin():
     
+    banner()
+
     argument_parser = ArgumentParser()
     argument = argument_parser.parse_arguments()
-
-    process_wordlist = WordlistProcess(argument.wordlist)
+    init_generate_count = 0
 
     if argument.interactive:
         user_input_parameters = InteractiveGeneration()
@@ -330,25 +408,36 @@ def aspin():
     else:
         parameter_output = argument_parser.argument_output()
         
-    word_length, separator, separator_count, numbers, special_characters, \
-        substitution, word_case = parameter_parser(parameter_output)
-
-    wordlist = process_wordlist.process_wordlist(word_length)
-
-    separator = separator_multiplier(separator, separator_count)
-    nums_and_special_chars = NumbersAndSpecialChars(wordlist, word_length)
-    wordlist = nums_and_special_chars.special_chars_nums_process(numbers, special_characters)
+    word_length, generate_number, separator, separator_count, numbers, special_characters, \
+        substitution, word_case, wordlist, wordlist_combine = parameter_parser(parameter_output)
     
-    wordlist = WordCase(wordlist, word_case).process()
+    wordlist_list = []
+    wordlist_list.append(wordlist)
+
+    if wordlist_combine and wordlist_combine is not None:
+        wordlist_list.append(wordlist_combine)
     
-    passphrase_raw = f'{separator}'.join(wordlist)
+    print("\n\tPassphrase Generated:\n\t")
+    while init_generate_count < generate_number:
+        process_wordlist = WordlistProcess(wordlist_list)
 
-    if substitution and substitution is not None:
-        current_char, new_char = substitution_parser(substitution)
-        passphrase_raw = passphrase_raw.replace(current_char, new_char)
+        wordlist = process_wordlist.process_wordlist(word_length)
 
-    print(f"\nPassphrase Generated:\n{passphrase_raw}")
+        multiplied_separator = separator_multiplier(separator, separator_count)
+        nums_and_special_chars = NumbersAndSpecialChars(wordlist, word_length)
+        wordlist = nums_and_special_chars.special_chars_nums_process(numbers, special_characters)
+        
+        wordlist = WordCase(wordlist, word_case).process()
+        
+        passphrase_raw = f'{multiplied_separator}'.join(wordlist)
 
+        if substitution and substitution is not None:
+            current_char, new_char = substitution_parser(substitution)
+            passphrase_raw = passphrase_raw.replace(current_char, new_char)
+
+        print(f"\t{passphrase_raw}")
+        init_generate_count += 1
+    print("\n")
 
 if __name__ == "__main__":
     aspin()
