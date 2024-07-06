@@ -27,17 +27,19 @@ Mahigit9---Nakakabit6---Maulol1---Tukuyin9---Kalinga5
 ## Usage and Available Arguments
 You can run the `-h` option to display the list of available command-line arguments. 
 ```
-usage: ASPIN [-h] [-l WORD_LENGTH] [-s SEPARATOR] [-sC SEPARATOR_COUNT] [-N] [-S] [-c WORD_CASE] [-x SUBSTITUTION] [-w WORDLIST] [-i]
+ASPIN [-h] [-l WORD_LENGTH] [-n GENERATE_NUMBER] [-s SEPARATOR] [-sC SEPARATOR_COUNT] [-N] [-S] [-c WORD_CASE] [-x SUBSTITUTION] [-w WORDLIST] [-wC WORDLIST_COMBINE] [-i]
 ```
 ### Available Arguments
 Below you will find the list of available options. Each of these options/arguments has their own default value, which will be used when unspecified. Alternatively, you can run interactive mode by specifying the `-i` option. Aspin will then display prompts for you to answer.
-- `-l` or `--WORDLENGTH` : Specify an integer for the number of words in your passphrase. Default value is 5
+- `-l` or `--WORDLENGTH` : Specify an integer for the number of words in your passphrase. Default value is 5.
+- `n` or `--GENERATENUMBER` : Specify an interger for the number of passphrases to generate. Default value is 1.
 - `-s` or `--SEPARATOR` : Specify a separator character between each word in your passphrase. Default is a space.
 - `-sC` or `--SEPARATORCOUNT` : Specify the number of separators between each word. Default value is 1.
 - `-N` or `--NUMBERS` :  Append numbers at the end of each word in your passphrase. Default value is False.
 - `-S` or `--SPECIALCHARS` :  Append special characters at the end of each word in your passphrase. Default value is False.
 - `-x` or `--SUBSTITUTION` :  Specify a character substitution using the '>' symbol between your old and new character (e.g., l>!). Default value is None.
 - `-w` or `--WORDLIST` : Specify the wordlist file location. Default is the tagalog.txt file.
+- `-wC` or `--WORDLISTCOMBINE` : Specify another wordlist file location to combine with the current chosen wordlist. Default is None.
 - `-i` or `--INTERACTIVE` : The program will ask for user inputs to generate the passphrase. Default value is False.
 
 ### Word Case Options
@@ -50,4 +52,4 @@ Below you will find the list of available options. Each of these options/argumen
 When specifying the `-N` or `--NUMBERS` argument, it will append a random number on each word. Similarly, when specifying `-S` or `-SPECIALCHARS`, it will also append a special character on each word.
 
 ## Roadmap
-I will be adding other Philippine dialect wordlists as wekk as English support. At the time of writing, I considered this project as a practice for OOP (Classes) and Python in genera but we will see where this would go.
+I will be adding other Philippine dialect wordlists. At the time of writing, I considered this project as a practice for OOP (Classes) and Python in general but we will see where this would go.
