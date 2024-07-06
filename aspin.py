@@ -393,6 +393,7 @@ def banner():
     """
     return print(aspin_banner)
 
+
 def aspin():
     
     banner()
@@ -438,6 +439,7 @@ def aspin():
         print(f"\t{passphrase_raw}")
         init_generate_count += 1
     print("\n")
+
 
 if __name__ == "__main__":
     aspin()
