@@ -1,0 +1,140 @@
+#header-title {
+    padding: 8px;
+    font-size: smaller;
+    text-align: center;
+    color: rgb(224, 187, 22);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    color: whitesmoke;
+    width: 300px;
+    height: 400px;
+    margin: 0;
+    padding: 10px;
+    background-color: rgb(36, 37, 37);
+    overflow: hidden;
+}
+
+.word {
+    padding: 8px;
+    color: rgb(253, 255, 244);
+    outline-style: hidden;
+    background-color: rgb(48, 48, 48);
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+#word-count {
+    width: 180px;
+    border: none;
+    color: rgb(192, 157, 1);
+    background-color: transparent;
+    padding: 3px;
+}
+
+#generate-count {
+    width: 155px;
+    border: none;
+    color: rgb(192, 157, 1);
+    background-color: transparent;
+    padding: 3px;
+}
+
+.separators {
+    padding: 8px;
+    color: rgb(253, 255, 244);
+    outline-style: hidden;
+    background-color: rgb(48, 48, 48);
+    border-radius: 5px;
+    margin-bottom: 15px; 
+}
+
+.options {
+    padding: 8px;
+    color: rgb(253, 255, 244);
+    outline-style: hidden;
+    background-color: rgb(48, 48, 48);
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+#separator {
+    width: 20px;
+    border: none;
+    color: rgb(192, 157, 1);
+    background-color: transparent;
+    padding: 3px;
+}
+
+#separator-count {
+    width: 40px;
+    border: none;
+    color: rgb(192, 157, 1);
+    background-color: transparent;
+    padding: 3px;
+}
+
+#numbers, #special-chars {
+    border: none;
+    background-color: transparent;
+    padding: 3px;
+}
+
+#word-case {
+    border: none;
+    color: rgb(192, 157, 1);
+    background-color: transparent;
+    padding: 3px;
+}
+
+#substitution-from {
+    width: 20px;
+    border: none;
+    color: rgb(192, 157, 1);
+    background-color: transparent;
+    padding: 3px;
+}
+
+#substitution-to {
+    width: 20px;
+    border: none;
+    color: rgb(253, 255, 244);
+    background-color: transparent;
+    padding: 3px;
+}
+
+.wordlists {
+    padding: 8px;
+    color: rgb(253, 255, 244);
+    outline-style: hidden;
+    background-color: rgb(48, 48, 48);
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+#wordlist, #second-wordlist {
+    border: none;
+    color: rgb(192, 157, 1);
+    background-color: transparent;
+    padding: 3px;
+}
+
+.generate {
+    background-color: rgb(252, 255, 240);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#output {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 10px; 
+    white-space: pre-wrap; 
+    outline: none; 
+    border: 1px solid rgba(0, 0, 0, 0.2); 
+    border-radius: 5px;
+    max-height: 200px; 
+    overflow-y: auto; 
+}

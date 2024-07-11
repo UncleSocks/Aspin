@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aspin: Filipino-centric Passphrase Generator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+</html>
+<body>
+    <h1 id="header-title">Aspin: Filipino-centric Passphrase Generator</h1>
+    <div id="output"></div>
+    <form id="passphrase-form">
+        <div class="word">
+        <label for="word-count">Word Count:</label>
+        <input type="number" id="word-count" name="word-count" value="5" min="3" max="20"></br>
+
+        <label for="generate-count">Generate Count:</label>
+        <input type="number" id="generate-count" name="generate-count" value="1" min="1" max="10"></br>
+        </div>
+
+        <div class="separators">
+        <label for="separator">Separator:</label>
+        <input type="text" id="separator" name="separator" minlength="1" maxlength="1"></br>
+
+        <label for="separator-count">Separator Count:</label>
+        <input type="number" id="separator-count" name="separator-count" value="1" min="1" max="10"></br>
+        </div>
+
+        <div class="options">
+        <label for="numbers">Include Numbers:</label>
+        <input type="checkbox" id="numbers" name="numbers"></br>
+
+        <label for="special-chars">Include Special Characters:</label>
+        <input type="checkbox" id="special-chars" name="special-chars"></br>
+
+        <label for="word-case">Word Case</label>
+        <select id="word-case" name="word-case">
+            <option value="lowercase">Lowercase</option>
+            <option value="uppercase">Uppercase</option>
+            <option value="capitalize">Capitalize</option>
+            <option value="randomize">Randomize</option>
+        </select></br>
+
+        <label for="substitution">Substitution:</label>
+        <input type="text" id="substitution-from" name="substitution-from" maxlength="1">
+        <span>to</span>
+        <input type="text" id="substitution-to" name="substitution-to" maxlength="1"></br>
+        </div>
+
+        <div class="wordlists">
+        <label for="wordlist">Wordlist Language:</label>
+        <select id="wordlist" name="wordlist">
+            <option value="tagalog">Tagalog</option>
+            <option value="english">English</option>
+        </select></br>
+        
+        <label for="second-wordlist">Combine With:</label>
+        <select id="second-wordlist" name="second-wordlist">
+            <option value="none">None</option>
+            <option value="tagalog">Tagalog</option>
+            <option value="english">English</option>
+        </select></br>
+        </div>
+
+        <button type="submit" class="generate">Generate</button>
+        <button type="button" id="copy-button" class="generate">Copy</button>
+    </form>
+    <script src="script.js"></script>
+</body>

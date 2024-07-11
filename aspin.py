@@ -250,16 +250,16 @@ class InteractiveGeneration():
 
     def _collect_user_inputs(self):
         
-        self.word_length = self.verify_int_input(f"Enter passphrase word count (default {self.word_length}): ", self.word_length)
-        self.generate_number = self.verify_int_input(f"Number of passphrase to generate (default {self.generate_number}): ", self.generate_number)
-        self.separator = input(f"Separator character (default space (default '{self.separator}')): ").strip() or self.separator
-        self.separator_count = self.verify_int_input(f"Enter separator count (default {self.separator_count}): ", self.separator_count)
-        self.numbers = self.verify_bool_input(f"Include numbers (default {self.numbers}): ")
-        self.special_characters = self.verify_bool_input(f"Include special characters (default {self.special_characters}): ")
-        self.substitution = input(f"Specify character substitution (default {self.substitution}): ") or self.substitution
-        self.word_case = input (f"Word case (default {self.word_case}): ") or self.word_case
-        self.wordlist = input(f"Wordlist file path (defult {self.wordlist}): ") or self.wordlist
-        self.wordlist_combine = input(f"Combine another wordlist (default {self.wordlist_combine}): ") or self.wordlist_combine
+        self.word_length = self.verify_int_input(f"\tEnter passphrase word count (default {self.word_length}): ", self.word_length)
+        self.generate_number = self.verify_int_input(f"\tNumber of passphrase to generate (default {self.generate_number}): ", self.generate_number)
+        self.separator = input(f"\tSeparator character (default space (default '{self.separator}')): ").strip() or self.separator
+        self.separator_count = self.verify_int_input(f"\tEnter separator count (default {self.separator_count}): ", self.separator_count)
+        self.numbers = self.verify_bool_input(f"\tInclude numbers (default {self.numbers}): ")
+        self.special_characters = self.verify_bool_input(f"\tInclude special characters (default {self.special_characters}): ")
+        self.substitution = input(f"\tSpecify character substitution (default {self.substitution}): ") or self.substitution
+        self.word_case = input (f"\tWord case (default {self.word_case}): ") or self.word_case
+        self.wordlist = input(f"\tWordlist file path (defult {self.wordlist}): ") or self.wordlist
+        self.wordlist_combine = input(f"\tCombine another wordlist (default {self.wordlist_combine}): ") or self.wordlist_combine
 
     
     def output(self):
@@ -384,12 +384,12 @@ def banner():
                                 ASPIN: Filipino-centric Passphrase Generator     
 
 
-    [+] Generates randomized passphrases
-    [+] Use the `-h` option for help
-    
-    @unclesocks
-    https://github.com/UncleSocks/aspin-filipino-centric-passphrase-generator
-    --------------------------------------------------------------------------------------------------------                                                                                                
+\t[+] Generates randomized passphrases
+\t[+] Use the `-h` option for help
+
+\t@unclesocks
+\thttps://github.com/UncleSocks/aspin-filipino-centric-passphrase-generator
+\t-------------------------------------------------------------------------------------------------                                                                                              
     """
     return print(aspin_banner)
 
