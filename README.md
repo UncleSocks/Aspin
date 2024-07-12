@@ -51,5 +51,12 @@ Below you will find the list of available options. Each of these options/argumen
 ### Numbers and Special Characters
 When specifying the `-N` or `--NUMBERS` argument, it will append a random number on each word. Similarly, when specifying `-S` or `-SPECIALCHARS`, it will also append a special character on each word.
 
+## Browser Extension
+The tool is also now available as a browser extension and was tested on Chrome-based browsers. Currently, it is not yet available on extension stores but you can install it locally by enabling **Developer Mode** then click the **Load Unpacked** and select the **extension** directory to install it manually to your browsers.
+
+![image](https://github.com/user-attachments/assets/6a0689b4-ad3b-4bb6-ae61-66ee9d06790f)
+
+Its usage is pretty self explanatory, click the **Generate** button to create your passphrase based on the selected options. 
+
 ## Roadmap
 I will be adding other Philippine dialect wordlists. At the time of writing, I considered this project as a practice for OOP (Classes) and Python in general but we will see where this would go.
