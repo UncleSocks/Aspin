@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function generatePassphrase() {
     const wordCount = parseInt(document.getElementById('word-count').value);
     const generateCount = parseInt(document.getElementById('generate-count').value);
-    let separator = document.getElementById('separator').value;
+    const separator = document.getElementById('separator').value;
     const separatorCount = parseInt(document.getElementById('separator-count').value);
     const includeNumbers = document.getElementById('numbers').checked;
     const includeSpecialChars = document.getElementById('special-chars').checked;
@@ -52,34 +52,30 @@ function generatePassphrase() {
                     word += String.fromCharCode(33 + Math.floor(Math.random() * 15));
                 }
 
+                switch (wordCase) {
+                    case 'uppercase':
+                        word = word.toUpperCase();
+                        break;
+                    case 'capitalize':
+                        word = word.charAt(0).toUpperCase() + word.slice(1)
+                        break;
+                    case 'randomize':
+                        word = word.split('').map(char =>
+                            Math.random() > 0.5 ? char.toUpperCase() : char.toLowerCase()
+                        ).join('');
+                        break;
+                    case 'lowercase':
+                        word = word.toLowerCase();
+                        break;
+                }
+
                 passphrase.push(word);
             }
-            
-            if (separator === '') {
-                separator = " "
-            }
-            
+
             let passphraseStr = passphrase.join(separator.repeat(separatorCount));
 
             if (substitutionFrom && substitutionTo) {
                 passphraseStr = passphraseStr.replace(new RegExp(substitutionFrom, 'g'), substitutionTo);
-            }
-
-            switch (wordCase) {
-                case 'uppercase':
-                    passphraseStr = passphraseStr.toUpperCase();
-                    break;
-                case 'capitalize':
-                    passphraseStr = passphraseStr.replace(/\b\w/g, char => char.toUpperCase());
-                    break;
-                case 'randomize':
-                    passphraseStr = passphraseStr.split('').map(char =>
-                        Math.random() > 0.5 ? char.toUpperCase() : char.toLowerCase()
-                    ).join('');
-                    break;
-                case 'lowercase':
-                    passphraseStr = passphraseStr.toLowerCase();
-                    break;
             }
 
             passphrases.push(passphraseStr);
