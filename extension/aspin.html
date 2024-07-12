@@ -6,8 +6,8 @@
 </head>
 </html>
 <body>
-    <h1 id="header-title">Aspin: Filipino-centric Passphrase Generator</h1>
-    <div id="output"></div>
+    <div id="output">
+    </div>
     <form id="passphrase-form">
         <div class="word">
         <label for="word-count">Word Count:</label>
@@ -47,7 +47,7 @@
         </div>
 
         <div class="wordlists">
-        <label for="wordlist">Wordlist Language:</label>
+        <label for="wordlist">Dictionary:</label>
         <select id="wordlist" name="wordlist">
             <option value="tagalog">Tagalog</option>
             <option value="english">English</option>
@@ -60,9 +60,16 @@
             <option value="english">English</option>
         </select></br>
         </div>
-
-        <button type="submit" class="generate">Generate</button>
-        <button type="button" id="copy-button" class="generate">Copy</button>
+        
+        <div id="generate-button-container">
+        <button type="submit" id="button">Generate</button>
+        <button type="button" id="copy-button">Copy</button>
+        </div>
+        
+        
     </form>
+    <div id="copy-notification">
+        Copied to clipboard.
+    </div>
     <script src="script.js"></script>
 </body>

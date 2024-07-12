@@ -25,8 +25,8 @@ function generatePassphrase() {
     const secondWordlist = document.getElementById('second-wordlist').value;
 
     const wordlistFiles = {
-        tagalog: 'tagalog.txt',
-        english: 'english.txt'
+        tagalog: 'wordlist/tagalog.txt',
+        english: 'wordlist/english.txt'
     }
 
     const wordlistLoad = [wordlistFiles[wordlist]];
@@ -85,7 +85,7 @@ function generatePassphrase() {
             passphrases.push(passphraseStr);
         }
 
-        document.getElementById('output').innerText = passphrases.join('\n');
+        document.getElementById('output').innerText = passphrases.join('\n\n');
     });
 }
 
@@ -99,7 +99,12 @@ function copyPassphraseToClipboard () {
     const passphraseText = document.getElementById('output').innerText;
     navigator.clipboard.writeText(passphraseText)
         .then(() => {
-            alert('Passphrase copied to clipboard');
+            const copyNotification = document.getElementById('copy-notification');
+            copyNotification.style.display = 'block';
+
+            setTimeout(() => {
+                copyNotification.style.display = 'none';
+            }, 2000)
         })
         .catch(err => {
             console.error('Failed to copy to clipboard: ', err);
