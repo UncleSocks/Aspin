@@ -164,11 +164,11 @@ body {
     left: 160px;
     width: 150px;
     transform: translateX(-50%);
-    background-color: rgba(255, 247, 205, 0.9); /* Green background */
+    background-color: rgba(255, 247, 205, 0.9);
     color: #363636;
     padding: 10px;
     margin-top: 5px;
     border-radius: 2px;
     display: none;
-    z-index: 1000; /* Ensure it's above other content */
+    z-index: 1000; 
 }
