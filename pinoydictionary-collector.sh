@@ -2,8 +2,18 @@
 # This Bash script collects tagalog, hiligaynon, cebuano, and ilocano dictionary entries from hxxps[://]pinoydictionary[.]com.
 # The collected dictionary entries are then appended to a text file, which is used by 'Apsin' to generate passphrases.
 # The script uses cURL together with grep and cut to parse through the HTTP file and capture the dictionary entries.
+# By default, the script will loop through the available dictionaries (tagalog, hiligaynon, cebuano, and ilocano) but you can specify a dialect by passing it as the first argument. Note, it is case-sensitive.
+# When a dictionary is passed as an argument, you can also specify which letter to begin as a second argument to avoid starting from scratch every time you run this script.
+# Use the --help or -h argument for more information.
+
 
 #!/bin/bash
+
+showHelp () {
+    echo "Usage: $0 [dialect] [startingLetter]"
+    echo "dialect (optional): The dialect you want to create a dictionary for (tagalog, hiligaynon, cebuano, ilocano). By default, the script will run through all four dialects."
+    echo "startingLetter (optional): When a dialect is specified, you can also specify which letter to start. By default, it will capturing start letter A."
+}
 
 createDictionary () {
 
@@ -60,6 +70,11 @@ main () {
 
     dialects=("tagalog" "hiligaynon" "cebuano" "ilocano")
 
+    if [[ $1 == "--help" || $1 == "-h" ]]; then
+        showHelp
+        exit 0
+    fi
+    
     if [ $# -gt 0 ]; then
 
         invalidDialect=1
