@@ -25,8 +25,10 @@ function generatePassphrase() {
     const secondWordlist = document.getElementById('second-wordlist').value;
 
     const wordlistFiles = {
-        tagalog: 'wordlist/tagalog.txt',
-        english: 'wordlist/english.txt'
+        tagalog: 'dictionaries/tagalog.txt',
+        hiligaynon: 'dictionaries/hiligaynon.txt',
+        cebuano: 'dictionaries/cebuano.txt',
+        english: 'dictionaries/english.txt'
     }
 
     const wordlistLoad = [wordlistFiles[wordlist]];
