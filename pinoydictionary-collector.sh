@@ -5,6 +5,9 @@
 # By default, the script will loop through the available dictionaries (tagalog, hiligaynon, cebuano, and ilocano) but you can specify a dialect by passing it as the first argument. Note, it is case-sensitive.
 # When a dictionary is passed as an argument, you can also specify which letter to begin as a second argument to avoid starting from scratch every time you run this script.
 # Use the --help or -h argument for more information.
+#
+#
+# Please note that I do not own the hxxps[://]pinoydictionary[.]com website.
 
 
 #!/bin/bash
