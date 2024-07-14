@@ -59,6 +59,8 @@ Aspin currently supports **Tagalog** and the following Filipino dialects:
 
 The Filipino language and dialects are all collected from Pinoy Dictionary (hxxps[://]www[.]pinoydictionary[.]com/) using a custom Bash script. The Bash script performs cURL operations and parses the HTML code for the dictionary entries. Then, another Bash script is used to clean up the raw dictionary text file -- removing any duplicates.
 
+An english wordlist/dictionary is also available (this is the most common foreign language in the Philippines), which is from NSACyber's RandPassGenerator.
+
 ## Browser Extension
 The tool is also now available as a browser extension and was tested on Chrome-based browsers. Currently, it is not yet available on extension stores but you can install it locally by enabling **Developer Mode** then clicking the **Load Unpacked** and selecting the **extension** directory to install it manually to your browsers.
 
