@@ -1,4 +1,3 @@
-
 # This Bash script collects tagalog, hiligaynon, cebuano, and ilocano dictionary entries from hxxps[://]pinoydictionary[.]com.
 # The collected dictionary entries are then appended to a text file, which is used by 'Apsin' to generate passphrases.
 # The script uses cURL together with grep and cut to parse through the HTTP file and capture the dictionary entries.

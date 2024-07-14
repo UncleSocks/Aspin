@@ -1,3 +1,4 @@
+# A bash script that separates alternate spellings from Pinoy Dictionary (e.g., ábung, abúng)
 # !/bin/bash
 
 processLine () {
