@@ -59,7 +59,7 @@ createDictionary () {
         until curl -s "${url}/$pageCounter/" | grep -q "The page you are looking for could not be found."; do
 
             currentPage=$pageCounter
-            echo "Capturing: dictionary $1 on letter '$currentLetter' on page '$currentPage'."
+            echo "Capturing: $1 dictionary on letter '$currentLetter', page '$currentPage'."
 
             curl -s "${url}/$pageCounter/" | grep h2 | cut -d '>' -f 3 | cut -d '<' -f 1 >> $1.txt
             ((pageCounter++))
