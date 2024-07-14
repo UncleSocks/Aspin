@@ -28,6 +28,7 @@ function generatePassphrase() {
         tagalog: 'dictionaries/tagalog.txt',
         hiligaynon: 'dictionaries/hiligaynon.txt',
         cebuano: 'dictionaries/cebuano.txt',
+        ilocano: 'dictionaries/ilocano.txt',
         english: 'dictionaries/english.txt'
     }
 
