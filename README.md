@@ -10,6 +10,12 @@ I wanted to create a passphrase generator that focuses on Philippine dialects as
 Furthermore, this allowed me to practice my Python skills and at the same time contribute to the information security knowledge body.
 
 I also included a folder of my photographs to raise awareness to aspins.
+
+## Preview
+
+![image](https://github.com/user-attachments/assets/5da2f24e-7012-420e-a670-fbc378d992bb)
+
+Aspin can be used from the CLI or as a browser extension. When using the CLI, you can set all options either through command arguments or by entering its interactive mode.
 ```
 aspin.py -l 5 -s * -sC 3 -N -S -c randomize -x a=@
 
