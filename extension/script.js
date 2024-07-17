@@ -59,6 +59,9 @@ function generatePassphrase() {
                     case 'uppercase':
                         word = word.toUpperCase();
                         break;
+                    case 'lowercase':
+                        word = word.toLowerCase();
+                        break;
                     case 'capitalize':
                         word = word.charAt(0).toUpperCase() + word.slice(1)
                         break;
@@ -67,8 +70,10 @@ function generatePassphrase() {
                             Math.random() > 0.5 ? char.toUpperCase() : char.toLowerCase()
                         ).join('');
                         break;
-                    case 'lowercase':
-                        word = word.toLowerCase();
+                    case 'alternate':
+                        word = word.split('').map((char, index) => 
+                            index % 2 === 0 ? char.toUpperCase() : char.toLowerCase()
+                        ).join('');
                         break;
                 }
 

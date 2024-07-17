@@ -349,7 +349,7 @@ class WordCase:
     def alternate(self):
         alternate_wordlist = []
         for word in self.wordlist:
-            alternate_word = ''.join(char.lower() if index % 2 != 0 else char.upper() for index, char in enumerate(word))
+            alternate_word = ''.join(char.upper() if index % 2 == 0 else char.lower() for index, char in enumerate(word))
             alternate_wordlist.append(alternate_word)
         return alternate_wordlist
 
