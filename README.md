@@ -37,6 +37,7 @@ Below you will find the list of available options. Each of these options/argumen
 - `-sC` or `--SEPARATORCOUNT` : Specify the number of separators between each word. Default value is 1.
 - `-N` or `--NUMBERS` :  Append numbers at the end of each word in your passphrase. Default value is False.
 - `-S` or `--SPECIALCHARS` :  Append special characters at the end of each word in your passphrase. Default value is False.
+- `-c` or `--WORD_CASE` : Specify passphrase's word case. 
 - `-x` or `--SUBSTITUTION` :  Specify a character substitution using the '>' symbol between your old and new character (e.g., l>!). Default value is None.
 - `-w` or `--WORDLIST` : Specify the wordlist file location. Default is the tagalog.txt file.
 - `-wC` or `--WORDLISTCOMBINE` : Specify another wordlist file location to combine with the current chosen wordlist. Default is None.
@@ -47,17 +48,18 @@ Below you will find the list of available options. Each of these options/argumen
 - uppercase: All characters are in uppercase
 - capitalize: Begining character of each word is in uppercase
 - randomize: Random uppercase and lowercase on each word
+- alternate: Alternate between lowercase and uppercase on each character.
 
 ### Numbers and Special Characters
 When specifying the `-N` or `--NUMBERS` argument, it will append a random number on each word. Similarly, when specifying `-S` or `-SPECIALCHARS`, it will also append a special character on each word.
 
 ## Wordlists/Dictionaries
-Aspin currently supports **Tagalog** and the following Filipino dialects:
+Aspin currently supports the following Filipino languages/dialects:
+- Tagalog
 - Hiligaynon
 - Cebuano
-- Ilocano
 
-The Filipino language and dialects are all collected from Pinoy Dictionary (hxxps[://]www[.]pinoydictionary[.]com/) using a custom Bash script. The Bash script performs cURL operations and parses the HTML code for the dictionary entries. Then, another Bash script is used to clean up the raw dictionary text file -- removing any duplicates.
+The Filipino languages/dialects are all collected from Pinoy Dictionary (hxxps[://]www[.]pinoydictionary[.]com/) using a custom Bash script. The Bash script performs cURL operations and parses the HTML code for the dictionary entries. Then, another Bash script is used to clean up the raw dictionary text file -- removing any duplicates.
 
 An english wordlist/dictionary is also available (this is the most common foreign language in the Philippines), which is from NSACyber's RandPassGenerator.
 
