@@ -93,7 +93,7 @@ class ArgumentParser:
             dest="word_case",
             help=(
                 "Specify a word case for your passphrase. Default value is lowercase. "
-                "Options are: lowercase, uppercase, capitalize, randomize."
+                "Options are: lowercase, uppercase, capitalize, randomize, alternate."
             )
         )
 
@@ -345,13 +345,21 @@ class WordCase:
             randomize_word = ''.join(random.choice([char.upper(), char]) for char in word)
             randomize_wordlist.append(randomize_word)
         return randomize_wordlist
+    
+    def alternate(self):
+        alternate_wordlist = []
+        for word in self.wordlist:
+            alternate_word = ''.join(char.lower() if index % 2 != 0 else char.upper() for index, char in enumerate(word))
+            alternate_wordlist.append(alternate_word)
+        return alternate_wordlist
 
     def process(self):
         word_case_method = {
             'lowercase':self.lowercase,
             'uppercase':self.uppercase,
             'capitalize':self.capitalize,
-            'randomize':self.randomize
+            'randomize':self.randomize,
+            'alternate':self.alternate
         }
 
         if self.word_case in word_case_method:
