@@ -59,9 +59,9 @@ class ArgumentParser:
         self.parser.add_argument(
             "-s", "--SEPARATOR",
             type=str,
-            default=" ",
+            default="",
             dest="separator",
-            help="Specify a separator character between each word in your passphrase. Default is a space."
+            help="Specify a separator character between each word in your passphrase. Default is a no space."
         )
 
         self.parser.add_argument(
@@ -227,7 +227,7 @@ class InteractiveGeneration():
         
         self.word_length = 5
         self.generate_number = 1
-        self.separator = " "
+        self.separator = ""
         self.separator_count = 1
         self.numbers = False
         self.special_characters = False
@@ -252,7 +252,7 @@ class InteractiveGeneration():
         
         self.word_length = self.verify_int_input(f"\tEnter passphrase word count (default {self.word_length}): ", self.word_length)
         self.generate_number = self.verify_int_input(f"\tNumber of passphrase to generate (default {self.generate_number}): ", self.generate_number)
-        self.separator = input(f"\tSeparator character (default space (default '{self.separator}')): ").strip() or self.separator
+        self.separator = input(f"\tSeparator character (default space (default is no space)): ").strip() or self.separator
         self.separator_count = self.verify_int_input(f"\tEnter separator count (default {self.separator_count}): ", self.separator_count)
         self.numbers = self.verify_bool_input(f"\tInclude numbers (default {self.numbers}): ")
         self.special_characters = self.verify_bool_input(f"\tInclude special characters (default {self.special_characters}): ")
