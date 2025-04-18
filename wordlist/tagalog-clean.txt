@@ -5751,7 +5751,6 @@ gadgaran
 gadgarin
 gadolinyum
 gadya
-gaga
 gagabuhok
 gagad
 gagahan
@@ -5761,7 +5760,6 @@ gagambang
 gagapang
 gagarin
 gaghan
-gago
 gahak
 gahaman
 gahasa
@@ -14479,7 +14477,6 @@ linsil
 linso
 linta
 lintang
-lintik
 lintog
 lintos
 linugaw
@@ -23342,9 +23339,7 @@ negatibo
 negosyante
 negosyo
 negosyohin
-negra
 negrito
-negro
 nektar
 nene
 neneng
@@ -23591,7 +23586,6 @@ notas
 notisya
 notsebuwena
 notsebwena
-nugnog
 nulo
 nuluhin
 numakaw
