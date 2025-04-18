@@ -1,5 +1,16 @@
 
 document.addEventListener('DOMContentLoaded', function() {
+
+    const wordlistSelect = document.getElementById('wordlist');
+    const secondWordlistSelect = document.getElementById('second-wordlist')
+
+
+    const runSync = () => syncWordlists(wordlistSelect, secondWordlistSelect);
+    wordlistSelect.addEventListener('change', runSync);
+
+    runSync()
+
+
     document.getElementById('passphrase-form').addEventListener('submit', function(event) {
         event.preventDefault();
         generatePassphrase();
@@ -26,9 +37,6 @@ function generatePassphrase() {
 
     const wordlistFiles = {
         tagalog: 'dictionaries/tagalog.txt',
-        hiligaynon: 'dictionaries/hiligaynon.txt',
-        cebuano: 'dictionaries/cebuano.txt',
-        ilocano: 'dictionaries/ilocano.txt',
         english: 'dictionaries/english.txt'
     }
 
@@ -93,11 +101,27 @@ function generatePassphrase() {
     });
 }
 
+
+function syncWordlists(wordlistSelect, secondWordlistSelect) {
+    const selectedWordlist = wordlistSelect.value
+
+    Array.from(secondWordlistSelect.options).forEach(option => {
+        option.hidden = option.value === selectedWordlist && option.value !== 'none';
+    })
+
+    if (secondWordlistSelect.value === selectedWordlist) {
+        secondWordlistSelect.value = 'none';
+    }
+
+}
+
+
 function loadWordlistFile(file) {
     return fetch(file)
         .then(response => response.text())
         .then(text => text.split('\n').map(word => word.trim()).filter(Boolean));
 }
+
 
 function copyPassphraseToClipboard () {
     const passphraseText = document.getElementById('output').innerText;
