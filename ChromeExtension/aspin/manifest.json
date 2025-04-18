@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "Aspin: Passphrase Generator",
+    "version": "2024.0.1",
+    "description": "An open-source, feature-rich but intuitive passphrase generator.",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "aspin.html",
+        "default_icon": {
+            "16": "assets/icon.png",
+            "48": "assets/icon.png",
+            "128": "assets/icon.png"
+        }
+    },
+    "icons": {
+        "16": "assets/icon.png",
+        "48": "assets/icon.png",
+        "128": "assets/icon.png"
+    }
+}

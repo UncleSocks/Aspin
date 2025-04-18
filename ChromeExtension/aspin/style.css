@@ -1,0 +1,174 @@
+#header-title {
+    padding: 8px;
+    font-size: small;
+    text-align: center;
+    color: rgb(230, 169, 99);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    color: whitesmoke;
+    width: 300px;
+    height: 400px;
+    margin: 0;
+    padding: 10px;
+    background-color: rgb(36, 37, 37);
+    overflow: hidden;
+}
+
+.word {
+    padding: 8px;
+    color: rgb(253, 255, 244);
+    outline-style: hidden;
+    background-color: rgb(48, 48, 48);
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+
+#word-count {
+    width: 180px;
+    border: none;
+    color: rgb(230, 169, 99);
+    background-color: transparent;
+    padding: 3px;
+}
+
+#generate-count {
+    width: 155px;
+    border: none;
+    color: rgb(230, 169, 99);
+    background-color: transparent;
+    padding: 3px;
+}
+
+.separators {
+    padding: 8px;
+    color: rgb(253, 255, 244);
+    outline-style: hidden;
+    background-color: rgb(48, 48, 48);
+    border-radius: 5px;
+    margin-bottom: 8px; 
+}
+
+.options {
+    padding: 8px;
+    color: rgb(253, 255, 244);
+    outline-style: hidden;
+    background-color: rgb(48, 48, 48);
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+
+#separator {
+    width: 180px;
+    border: none;
+    color: rgb(230, 169, 99);
+    background-color: transparent;
+    padding: 3px;
+}
+
+#separator-count {
+    width: 140px;
+    border: none;
+    color: rgb(230, 169, 99);
+    background-color: transparent;
+    padding: 3px;
+}
+
+#numbers, #special-chars {
+    border: none;
+    background-color: transparent;
+    padding: 3px;
+    margin-bottom: 5px;
+}
+
+#word-case {
+    border: none;
+    color: rgb(230, 169, 99);
+    background-color: transparent;
+    padding: 3px;
+    margin-bottom: 5px;
+}
+
+#substitution-from, #substitution-to {
+    width: 70px;
+    border: none;
+    color: rgb(230, 169, 99);
+    background-color: transparent;
+    padding: 3px;
+    margin-bottom: 5px;
+}
+
+.wordlists {
+    padding: 8px;
+    color: rgb(253, 255, 244);
+    outline-style: hidden;
+    background-color: rgb(48, 48, 48);
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+
+#wordlist, #second-wordlist {
+    border: none;
+    color: rgb(230, 169, 99);
+    background-color: transparent;
+    padding: 3px;
+}
+
+#generate-button-container {
+    margin-top: 2px;
+    margin-bottom: 10px;
+}
+
+#button, #copy-button  {
+    background-color: rgb(66, 66, 66);
+    border: none;
+    color: rgb(253, 255, 244);
+    padding: 6px;
+    width: 148px;
+    height: 40px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+
+#button:hover, #copy-button:hover {
+    background-color: rgb(230, 169, 99);
+}
+
+#output {
+    font-weight: bold;
+    font-size: medium;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 10px; 
+    white-space: pre-wrap; 
+    word-wrap: break-word;
+    outline: none; 
+    border: 1px solid rgb(230, 169, 99);
+    border-radius: 5px;
+    max-height: 200px; 
+    overflow-y: auto; 
+    overflow-x: hidden;
+    height: 180px;
+    width: 100%;
+    box-sizing: border-box; 
+}
+
+#copy-notification {
+    position: fixed;
+    text-align: center;
+    top: 0px;
+    left: 160px;
+    width: 150px;
+    transform: translateX(-50%);
+    background-color: rgba(255, 247, 205, 0.9);
+    color: #363636;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 2px;
+    display: none;
+    z-index: 1000; 
+}
