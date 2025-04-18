@@ -70,11 +70,16 @@ The Filipino languages/dialects are all collected from Pinoy Dictionary (hxxps[:
 An english wordlist/dictionary is also available (this is the most common foreign language in the Philippines), which is from NSACyber's RandPassGenerator.
 
 ## Browser Extension
-The tool is also now available as a browser extension and was tested on Chrome-based browsers. Currently, it is not yet available on extension stores but you can install it locally by enabling **Developer Mode** then clicking the **Load Unpacked** and selecting the **extension** directory to install it manually to your browsers.
+The tool is also now available as a browser extension and was tested on Chrome-based browsers. Currently, a stripped-down version is available on Google store but you can install the full version locally by enabling **Developer Mode** then clicking the **Load Unpacked** and selecting the **extension** directory to install it manually to your browsers.
 
 ![image](https://github.com/user-attachments/assets/87f542d5-ce3c-40c6-9e90-d45e9bcb93c2)
 
-It has the same available options as its CLI counterpart, except for the ability to use your own custom wordlist/dictionary.
+It has the same options as its CLI counterpart, except for using your own custom wordlist/dictionary.
+
+### Chrome Extension
+A stripped-down browser extension version is currently available publicly on the Google Store, renamed as "Aspin: Passphrase Generator". This extension currently only supports the English dictionary from NSACyber's RandPassGenerator due to potential copyright issues for Filipino-related dictionaries.
+
+![image](https://github.com/user-attachments/assets/07afd88e-e0d5-42ff-8076-3dbc84b6406b)
 
 ## Supporting Aspins (and Puspins) in the Philippines
 Please consider donating to various NGOs and volunteers focusing in rescuing Aspins and Puspins, such as:
