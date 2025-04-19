@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "Aspin: Filipino-centric Passphrase Generator",
+    "name": "Aspin: Filipino Passphrase Generator",
     "version": "2025.1.0",
-    "description": "Filipino and English passphrase generator.",
+    "description": "Feature-riched Filipino and English passphrase generator.",
     "background": {
         "service_worker": "background.js"
     },
