@@ -1,5 +1,16 @@
 
 document.addEventListener('DOMContentLoaded', function() {
+
+    const wordlistSelect = document.getElementById('wordlist');
+    const secondWordlistSelect = document.getElementById('second-wordlist')
+
+
+    const runSync = () => syncWordlists(wordlistSelect, secondWordlistSelect);
+    wordlistSelect.addEventListener('change', runSync);
+
+    runSync()
+
+
     document.getElementById('passphrase-form').addEventListener('submit', function(event) {
         event.preventDefault();
         generatePassphrase();
@@ -21,8 +32,18 @@ function generatePassphrase() {
     const wordCase = document.getElementById('word-case').value;
     const substitutionFrom = document.getElementById('substitution-from').value;
     const substitutionTo = document.getElementById('substitution-to').value;
+    const wordlist = document.getElementById('wordlist').value;
+    const secondWordlist = document.getElementById('second-wordlist').value;
 
-    const wordlistLoad = ['dictionaries/dictionary.txt'];
+    const wordlistFiles = {
+        tagalog: 'dictionaries/tagalog.txt',
+        english: 'dictionaries/english.txt'
+    }
+
+    const wordlistLoad = [wordlistFiles[wordlist]];
+    if (secondWordlist !== 'none') {
+        wordlistLoad.push(wordlistFiles[secondWordlist]);
+    }
 
     Promise.all(wordlistLoad.map(loadWordlistFile)).then(wordlists => {
         const combinedWordlist = wordlists.flat();
@@ -80,11 +101,27 @@ function generatePassphrase() {
     });
 }
 
+
+function syncWordlists(wordlistSelect, secondWordlistSelect) {
+    const selectedWordlist = wordlistSelect.value
+
+    Array.from(secondWordlistSelect.options).forEach(option => {
+        option.hidden = option.value === selectedWordlist && option.value !== 'none';
+    })
+
+    if (secondWordlistSelect.value === selectedWordlist) {
+        secondWordlistSelect.value = 'none';
+    }
+
+}
+
+
 function loadWordlistFile(file) {
     return fetch(file)
         .then(response => response.text())
         .then(text => text.split('\n').map(word => word.trim()).filter(Boolean));
 }
+
 
 function copyPassphraseToClipboard () {
     const passphraseText = document.getElementById('output').innerText;

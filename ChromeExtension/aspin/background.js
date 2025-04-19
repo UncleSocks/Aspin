@@ -1,3 +1,3 @@
 chrome.runtime.onInstalled.addListener(() => {
-    console.log('Aspin: Passphrase Generator installed.');
+    console.log('Aspin: Filipino Passphrase Generator installed.');
 });
