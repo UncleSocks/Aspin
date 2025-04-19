@@ -5487,8 +5487,6 @@ esensiya
 esensiyal
 eskabetse
 eskala
-eskandalo
-eskandalosa
 eskaparate
 eskapularyo
 eskarlata
@@ -9335,8 +9333,6 @@ isisi
 isiwalat
 iskabetse
 iskala
-iskandalo
-iskandaluhin
 iskandiyum
 iskaparate
 iskape
@@ -37327,7 +37323,6 @@ uyamin
 uyan
 uyaw
 uyayi
-uyot
 waag
 waak
 waang
@@ -37549,6 +37544,5 @@ yupiin
 yupyupan
 yurakan
 yuropyum
-yuta
 yutyot
 zink
