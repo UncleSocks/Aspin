@@ -43,7 +43,6 @@ abito
 abitsuwelas
 abitswelas
 abla
-abnormal
 abog
 abogado
 abogasia
@@ -2422,7 +2421,6 @@ bawiin
 bayaan
 bayabas
 bayad
-bayag
 bayakan
 bayakid
 bayambang
@@ -2583,7 +2581,6 @@ bibig
 bibigan
 bibihira
 bibinga
-bibingka
 bibinhiin
 bibit
 bibitayan
@@ -3021,12 +3018,10 @@ bolta
 boltahe
 boltimetro
 boluntaryo
-bomba
 bombahan
 bombahin
 bombang
 bombastiko
-bombero
 bombilya
 bombista
 bombo
@@ -3086,7 +3081,6 @@ brongkonomonya
 brongkonyumonya
 brongkyal
 bronse
-brotsa
 brotse
 bruas
 bruha
@@ -3803,8 +3797,6 @@ buwig
 buwik
 buwis
 buwisan
-buwisit
-buwisitin
 buwitre
 buya
 buyaan
@@ -4289,7 +4281,6 @@ demokrasya
 demokrata
 demokratiko
 demolisyon
-demonyuhin
 demos
 demostrador
 demostrasyon
@@ -4489,8 +4480,6 @@ dikasanlingan
 dikatumbas
 dikatumbasan
 dikay
-dikdik
-dikdikan
 dike
 dikin
 dikit
@@ -4526,8 +4515,6 @@ dilema
 dili
 dilidili
 dilidilihin
-dilig
-diligin
 dilihensiya
 dilikada
 dilikadesa
@@ -4912,8 +4899,6 @@ duke
 dukesa
 dukha
 dukhang
-dukit
-dukitin
 duklay
 duklayin
 dukot
@@ -8684,7 +8669,6 @@ intransitibo
 intriga
 introduksiyon
 introduksyon
-intsik
 intsupe
 intuwisyon
 intwisyon
@@ -9600,9 +9584,6 @@ itiwalag
 itiwarik
 itiwasay
 itlo
-itlog
-itlugan
-itlugin
 itoka
 itono
 itornilyo
@@ -10089,7 +10070,6 @@ kadusta
 kadustaan
 kaduwagan
 kadyos
-kadyot
 kadyus
 kadyutin
 kaeksaktuhan
@@ -13919,8 +13899,6 @@ lapisak
 lapisakin
 lapit
 lapitan
-laplap
-laplapin
 lapnis
 lapnit
 lapnos
@@ -14103,7 +14081,6 @@ leteng
 leterhed
 letering
 letra
-letse
 letseplan
 letson
 letsugas
@@ -15694,7 +15671,6 @@ magbatas
 magbatay
 magbatbat
 magbatel
-magbati
 magbatian
 magbatik
 magbatikusan
@@ -16969,8 +16945,6 @@ magmana
 magmanda
 magmando
 magmaneho
-magmanga
-magmangmang
 magmanikyur
 magmanman
 magmanok
@@ -21274,7 +21248,6 @@ margin
 marhen
 marhin
 marhuya
-marihuwana
 mariin
 marikakaw
 marikit
@@ -29818,7 +29791,6 @@ patinisin
 patinuin
 patira
 patirahan
-patirahin
 patirik
 patirikan
 patirikin
@@ -30970,8 +30942,6 @@ propyetaryo
 prosa
 prospekto
 prospektus
-prostitusyon
-prostituta
 protaktinyum
 protehido
 proteksiyon
@@ -31524,7 +31494,6 @@ puwera
 puwerahin
 puwerikultura
 puwersa
-puwerta
 puwerte
 puwerto
 puwes
@@ -33099,8 +33068,6 @@ shampoo
 shooting
 siba
 sibad
-sibak
-sibakin
 siban
 sibasib
 sibasibin
@@ -34316,7 +34283,6 @@ tabangan
 tabas
 tabasin
 tabatsuy
-tabayag
 taberna
 tabernakulo
 tabi
@@ -35177,7 +35143,6 @@ tarol
 taros
 tartanilya
 tartaro
-tarugo
 tarukin
 tarundon
 tasa
@@ -35833,7 +35798,6 @@ tonohan
 tonsil
 tonsilitis
 tonsura
-tonto
 topasyo
 topaz
 topograpia
@@ -36375,7 +36339,6 @@ tuminis
 tumino
 tumipak
 tumipas
-tumira
 tumirador
 tumirik
 tumisod
