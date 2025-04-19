@@ -90,12 +90,6 @@ abuluyan
 abunado
 aburido
 aburiduhin
-abusada
-abusado
-abusera
-abusero
-abuso
-abusuhin
 abut
 abutan
 abutin
@@ -3012,13 +3006,10 @@ boksinero
 boksing
 boksingero
 boksingin
-bola
 bolabola
 bolador
-bolahin
 bolante
 bolatil
-bolero
 bolibol
 bolilyo
 boling
@@ -3298,7 +3289,6 @@ bulayin
 bulbo
 bulbog
 bulbok
-bulbol
 bulbugin
 buldog
 buldoser
@@ -3779,7 +3769,6 @@ butilin
 butingting
 butitos
 butlig
-buto
 butod
 buton
 butones
@@ -3949,8 +3938,6 @@ dakmain
 dako
 dakol
 dakong
-dakot
-dakpin
 daksipat
 daktinig
 dakunot
@@ -5749,8 +5736,6 @@ gagarin
 gaghan
 gahak
 gahaman
-gahasa
-gahasain
 gahi
 gahis
 gahisin
@@ -6622,7 +6607,6 @@ halawhaw
 halawin
 halay
 halayhay
-halayin
 halbos
 halbot
 hale
@@ -8454,7 +8438,6 @@ imus
 imyun
 inaama
 inaanak
-inaapi
 inaaralan
 inaasam
 inaatay
@@ -8855,7 +8838,6 @@ ipagparangya
 ipagpasikat
 ipagpasko
 ipagpatawad
-ipagpatay
 ipagpatayo
 ipagpatuloy
 ipagpaumanhin
@@ -10120,7 +10102,6 @@ kagabi
 kagagamit
 kagagawan
 kagahaman
-kagahasaan
 kagahulan
 kagalakan
 kagalang
@@ -10575,7 +10556,6 @@ kalan
 kalanda
 kalandasan
 kalandayan
-kalandian
 kalandong
 kalang
 kalangan
@@ -10781,8 +10761,6 @@ kalmot
 kalmutin
 kalo
 kalog
-kalokohan
-kalokohang
 kalong
 kaloob
 kalooban
@@ -11217,7 +11195,6 @@ kapanatilihan
 kapanayamin
 kapandakan
 kapangagaw
-kapangahasan
 kapangakuan
 kapangalan
 kapanganakan
@@ -11381,7 +11358,6 @@ karagalipan
 karagatan
 karagdagan
 karagsinan
-karahasan
 karaingan
 karaka
 karakara
@@ -13836,9 +13812,6 @@ lanaw
 lanay
 landas
 landay
-landi
-landing
-landit
 landok
 landol
 lang
@@ -13931,7 +13904,6 @@ lapangin
 laparan
 lapas
 lapastangan
-lapastanganin
 lapat
 lapatan
 lapay
@@ -14579,10 +14551,6 @@ lohistiko
 lohiya
 loka
 lokal
-loko
-lokohin
-lokomotora
-lokong
 lokuhin
 lola
 lolipop
@@ -14787,7 +14755,6 @@ lumantak
 lumapa
 lumapad
 lumapag
-lumapastangan
 lumapat
 lumapirot
 lumapit
@@ -16842,7 +16809,6 @@ maglambing
 maglambitin
 maglampas
 maglampaso
-maglandi
 maglanggas
 maglangib
 maglangis
@@ -17354,7 +17320,6 @@ magpakaligaya
 magpakaliwa
 magpakaliwag
 magpakalma
-magpakaloko
 magpakalublob
 magpakalugami
 magpakalugi
@@ -19027,7 +18992,6 @@ makaliskis
 makalito
 makalmot
 makalog
-makaloko
 makalubha
 makalugod
 makalukso
@@ -19697,10 +19661,8 @@ maliyo
 maliyuhin
 mallet
 malma
-maloko
 malt
 malta
-maltrato
 maluag
 maluay
 malubay
@@ -20324,7 +20286,6 @@ manggagawang
 manggagaway
 manggagaya
 manggahan
-manggahasa
 manggahis
 manggaling
 manggalit
@@ -21068,7 +21029,6 @@ mapanlait
 mapanlibak
 mapanligalig
 mapanlikha
-mapanloko
 mapanood
 mapansin
 mapansinin
@@ -23136,7 +23096,6 @@ napakaliit
 napakaliksi
 napakalimit
 napakalinaw
-napakaloko
 napakalupit
 napakamadetalye
 napakamahal
@@ -24428,7 +24387,6 @@ paggagapos
 paggagawad
 paggagayak
 paggagaygay
-paggahasa
 paggahis
 paggala
 paggalang
@@ -25226,8 +25184,6 @@ pagkalkal
 pagkalkula
 pagkalmot
 pagkalog
-pagkaloka
-pagkaloko
 pagkalooban
 pagkaltas
 pagkalubog
@@ -25687,7 +25643,6 @@ paglalambing
 paglalambitin
 paglalampong
 paglalamyos
-paglalandi
 paglalang
 paglalangan
 paglalanggas
@@ -26216,7 +26171,6 @@ pagpasubalian
 pagpasyensyahan
 pagpatak
 pagpatalastasan
-pagpatay
 pagpatibuhatan
 pagpatid
 pagpatrolya
@@ -26412,7 +26366,6 @@ pagsalusog
 pagsama
 pagsamahin
 pagsamantala
-pagsamantalahan
 pagsamba
 pagsambilat
 pagsambit
@@ -27043,7 +26996,6 @@ pagyukdo
 pagyuko
 pagyukod
 pagyukyok
-pagyurak
 pagyutyot
 pagyuyukayok
 paha
@@ -27736,7 +27688,6 @@ palko
 palkon
 palma
 palo
-paloko
 palong
 palos
 palot
@@ -28278,9 +28229,7 @@ pananahanan
 pananahi
 pananahimik
 pananaig
-pananakit
 pananakol
-pananakop
 pananakot
 pananalakay
 pananalakop
@@ -28416,7 +28365,6 @@ pangabit
 pangadlit
 pangahan
 pangahas
-pangahasan
 pangahin
 pangako
 pangakuan
@@ -28507,7 +28455,6 @@ pangbatak
 panggabi
 panggabot
 panggagagad
-panggagahasa
 panggagahis
 panggagalit
 panggagamot
@@ -30214,9 +30161,6 @@ pesimism
 pesimismo
 pesimist
 pesimista
-peste
-pestehado
-pestehin
 pesteho
 petal
 petalo
@@ -31580,8 +31524,6 @@ puwera
 puwerahin
 puwerikultura
 puwersa
-puwersahan
-puwersahin
 puwerta
 puwerte
 puwerto
@@ -32325,7 +32267,6 @@ saksihan
 saktan
 sakulin
 sakuna
-sakupin
 sakwa
 sakwil
 sakyad
@@ -34250,7 +34191,6 @@ superyor
 superyora
 superyoridad
 supil
-supilin
 supla
 suplada
 suplado
@@ -36844,7 +36784,6 @@ umabot
 umabsen
 umabsent
 umabuloy
-umabuso
 umabyad
 umadyo
 umadyos
@@ -37300,7 +37239,6 @@ utitab
 utod
 utol
 utos
-utuin
 utus
 utusan
 utusang
