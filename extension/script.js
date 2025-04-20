@@ -37,7 +37,9 @@ function generatePassphrase() {
 
     const wordlistFiles = {
         tagalog: 'dictionaries/tagalog.txt',
-        english: 'dictionaries/english.txt'
+        english: 'dictionaries/english.txt',
+        hiligaynon: 'dictionaries/hiligaynon.txt',
+        cebuano: 'dictionaries/cebuano.txt'
     }
 
     const wordlistLoad = [wordlistFiles[wordlist]];
