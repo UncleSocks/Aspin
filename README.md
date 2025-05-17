@@ -15,7 +15,7 @@ I also included a folder of my photographs to raise awareness of aspins.
 
 ## Preview
 
-![image](https://github.com/user-attachments/assets/5da2f24e-7012-420e-a670-fbc378d992bb)
+![aspin](https://github.com/user-attachments/assets/66caefba-7834-4a6b-9d28-b1c12dc30ff4)
 
 Aspin can be used from the CLI or as a browser extension. When using the CLI, you can set all options either through command arguments or by entering interactive mode.
 ```
