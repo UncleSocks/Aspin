@@ -111,7 +111,7 @@ class ArgumentParser:
         self.parser.add_argument(
             "-w", '--WORDLIST',
             type=str,
-            default="./wordlist/tagalog.txt",
+            default="./wordlist/tagalog-clean.txt",
             dest="wordlist",
             help="Specify the wordlist file location. Default is the tagalog.txt file."
         )
@@ -392,7 +392,8 @@ def banner():
                                 ASPIN: Filipino-centric Passphrase Generator     
 
 
-\t[+] Generates randomized passphrases
+\t[+] Feature-rich yet intuitive passphrase generator
+\t[+] Supports Filipino, Hiligaynon, and Cebuano in addition to English
 \t[+] Use the `-h` option for help
 
 \t@unclesocks
@@ -402,7 +403,7 @@ def banner():
     return print(aspin_banner)
 
 
-def aspin():
+def main():
     
     banner()
 
@@ -450,4 +451,4 @@ def aspin():
 
 
 if __name__ == "__main__":
-    aspin()
+    main()
