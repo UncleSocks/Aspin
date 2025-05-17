@@ -1,4 +1,4 @@
-![aspin_01](https://github.com/UncleSocks/aspin-filipino-centric-passphrase-generator/assets/79778613/7bccf670-a404-41fc-8ab3-489d7da828f7)
+![aspin_01](https://github.com/user-attachments/assets/6c3282e3-46eb-4692-87dd-7e590fddb499)
 
 # Aspin: Filipino Passphrase Generator
 
@@ -38,18 +38,21 @@ You can run the `-h` option to display the list of available command-line argume
 ASPIN [-h] [-l WORD_LENGTH] [-n GENERATE_NUMBER] [-s SEPARATOR] [-sC SEPARATOR_COUNT] [-N] [-S] [-c WORD_CASE] [-x SUBSTITUTION] [-w WORDLIST] [-wC WORDLIST_COMBINE] [-i]
 ```
 ### Available Arguments
-Below you will find the list of available options. Each of these options/arguments has its own default value, which will be used when unspecified. Alternatively, you can run interactive mode by specifying the `-i` option. Aspin will then display prompts for you to answer.
-- `-l` or `--WORDLENGTH` : Specify an integer for the number of words in your passphrase. The default value is 5.
-- `n` or `--GENERATENUMBER` : Specify an integer for the number of passphrases to generate. The default value is 1.
-- `-s` or `--SEPARATOR` : Specify a separator character between each word in your passphrase. The default is a space.
-- `-sC` or `--SEPARATORCOUNT` : Specify the number of separators between each word. The default value is 1.
-- `-N` or `--NUMBERS` :  Append numbers at the end of each word in your passphrase. The default value is False.
-- `-S` or `--SPECIALCHARS` :  Append special characters at the end of each word in your passphrase. The default value is False.
-- `-c` or `--WORD_CASE` : Specify passphrase's word case. 
-- `-x` or `--SUBSTITUTION` :  Specify a character substitution using the '>' symbol between your old and new character (e.g., l>!). The default value is None.
-- `-w` or `--WORDLIST` : Specify the wordlist file location. The default is the tagalog.txt file.
-- `-wC` or `--WORDLISTCOMBINE` : Specify another wordlist file location to combine with the current chosen wordlist. The default is None.
-- `-i` or `--INTERACTIVE` : The program will ask for user inputs to generate the passphrase. The default value is False.
+The table below lists the available options. Each of these options/arguments has its own default value, which will be used when unspecified. Alternatively, you can run interactive mode by specifying the `-i` option. Aspin will then display prompts for you to answer.
+
+| Option | Description | Default Value |
+| ------ | ----------- | :-----------: |
+| `-l` or `--WORDLENGTH` | Specify an integer for the number of words in your passphrase. | 5
+| `n` or `--GENERATENUMBER` | Specify an integer for the number of passphrases to generate. | 1 |
+| `-s` or `--SEPARATOR` | Specify a separator character between each word in your passphrase. | space |
+| `-sC` or `--SEPARATORCOUNT` | Specify the number of separators between each word. | 1 |
+| `-N` or `--NUMBERS` | Append numbers at the end of each word in your passphrase. | False |
+| `-S` or `--SPECIALCHARS` | Append special characters at the end of each word in your passphrase. | False |
+| `-c` or `--WORD_CASE` | Specify passphrase's word case. | Lowercase |
+| `-x` or `--SUBSTITUTION` | Specify a character substitution using the '>' symbol between your old and new character (e.g., l>!). | None |
+| `-w` or `--WORDLIST` | Specify the wordlist file location. | .\tagalog.txt |
+| `-wC` or `--WORDLISTCOMBINE` | Specify another wordlist file location to combine with the current chosen wordlist. | None |
+| `-i` or `--INTERACTIVE` | The program will ask for user inputs to generate the passphrase. | False |
 
 ### Word Case Options
 - lowercase: All characters are in lowercase
