@@ -393,7 +393,7 @@ def banner():
 
 
 \t[+] Feature-rich yet intuitive passphrase generator
-\t[+] Supports Filipino, Hiligaynon, and Cebuano in addition to English
+\t[+] Supports English, Filipino, Hiligaynon, and Cebuano
 \t[+] Use the `-h` option for help
 
 \t@unclesocks
