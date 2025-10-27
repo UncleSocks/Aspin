@@ -1,4 +1,4 @@
-import random
+import secrets
 import string
 
 
@@ -27,13 +27,13 @@ class NumbersAndSpecialChars:
 
 
     def add_special_chars(self):
-        special_chars = ''.join(random.choice(string.punctuation) for _ in range(self.word_length))
+        special_chars = ''.join(secrets.choice(string.punctuation) for _ in range(self.word_length))
         wordlist_with_special_chars = [f"{word}{special_char}" for word, special_char in zip(self.wordlist, special_chars)]
         return wordlist_with_special_chars
     
 
     def add_numbers(self):
-        numbers = ''.join(random.choice(string.digits) for _ in range(self.word_length))
+        numbers = ''.join(secrets.choice(string.digits) for _ in range(self.word_length))
         wordlist_with_numbers = [f"{word}{number}" for word, number in zip(self.wordlist, numbers)]
         return wordlist_with_numbers
     
@@ -91,7 +91,7 @@ class WordCase:
     def randomize(self):
         randomize_wordlist = []
         for word in self.wordlist:
-            randomize_word = ''.join(random.choice([char.upper(), char]) for char in word)
+            randomize_word = ''.join(secrets.choice([char.upper(), char]) for char in word)
             randomize_wordlist.append(randomize_word)
         return randomize_wordlist
     

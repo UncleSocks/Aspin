@@ -1,4 +1,4 @@
-import random
+import secrets
 
 
 class WordlistProcess:
@@ -31,11 +31,11 @@ class WordlistProcess:
         wordlist = []
 
         while len(wordlist) < word_length:
-            
-            randomized_filepath_index = random.randint(0,len(self.filepaths) - 1)
+
+            randomized_filepath_index = secrets.randbelow(len(self.filepaths))
             chosen_filepath = self.filepaths[randomized_filepath_index]
         
-            line_number = random.randint(1, filepath_lines_sum[chosen_filepath])
+            line_number = secrets.randbelow(filepath_lines_sum[chosen_filepath])
             current_word = self.get_word(line_number, chosen_filepath)
 
             if current_word and current_word not in wordlist:
