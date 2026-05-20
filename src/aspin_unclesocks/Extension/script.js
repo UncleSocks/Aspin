@@ -21,6 +21,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+function getRandom(modulus) {
+    var cryptoObj = window.crypto; 
+    var array = new Uint32Array(1)
+    cryptoObj.getRandomValues(array)
+    
+    return array[0]%modulus
+}
+
 
 function generatePassphrase() {
     const wordCount = parseInt(document.getElementById('word-count').value);
@@ -28,6 +36,7 @@ function generatePassphrase() {
     const separator = document.getElementById('separator').value;
     const separatorCount = parseInt(document.getElementById('separator-count').value);
     const includeNumbers = document.getElementById('numbers').checked;
+    const numRange = document.getElementById('magnitudes').value;
     const includeSpecialChars = document.getElementById('special-chars').checked;
     const wordCase = document.getElementById('word-case').value;
     const substitutionFrom = document.getElementById('substitution-from').value;
@@ -55,14 +64,27 @@ function generatePassphrase() {
         for (let generateCounter = 0; generateCounter < generateCount; generateCounter++) {
             let passphrase = [];
             for (let wordCounter = 0; wordCounter < wordCount; wordCounter++) {
-                let word = combinedWordlist[Math.floor(Math.random() * combinedWordlist.length)];
+                let word = combinedWordlist[getRandom(combinedWordlist.length)];
 
                 if (includeNumbers) {
-                    word += Math.floor(Math.random() * 10);
+                    switch (numRange) {
+                        case '10':
+                            word += getRandom(10);
+                            break;
+                        case '100':
+                            word += getRandom(100);
+                            break;
+                        case '1000':
+                            word += getRandom(1000);
+                            break;
+                        case '10000':
+                            word += getRandom(10000);
+                            break;
+                    }
                 }
 
                 if (includeSpecialChars) {
-                    word += String.fromCharCode(33 + Math.floor(Math.random() * 15));
+                    word += String.fromCharCode(33 + getRandom(15));
                 }
 
                 switch (wordCase) {
