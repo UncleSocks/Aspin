@@ -26,13 +26,26 @@
         </div>
 
         <div class="options">
-        <label for="numbers">Include Numbers:</label>
-        <input type="checkbox" id="numbers" name="numbers"></br>
+            <div class="number-options">
+                <div class="left">
+                    <label for="numbers">Include Numbers:</label>
+                    <input type="checkbox" id="numbers" name="numbers"></br>
+                </div>
+                <div class="right">
+                    <label for="numbers">Range:</label>
+                    <select id="magnitudes" name="magnitudes">
+                        <option value="10">10</option>
+                        <option value="100">100</option>
+                        <option value="1000">1000</option>
+                        <option value="10000">10000</option>
+                    </select>                 
+                </div>
+            </div>
 
         <label for="special-chars">Include Special Characters:</label>
         <input type="checkbox" id="special-chars" name="special-chars"></br>
 
-        <label for="word-case">Word Case</label>
+        <label for="word-case">Word Case:</label>
         <select id="word-case" name="word-case">
             <option value="lowercase">Lowercase</option>
             <option value="uppercase">Uppercase</option>

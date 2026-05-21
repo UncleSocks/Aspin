@@ -60,6 +60,13 @@ body {
     margin-bottom: 8px;
 }
 
+.number-options {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
 #separator {
     width: 180px;
     border: none;
@@ -83,7 +90,7 @@ body {
     margin-bottom: 5px;
 }
 
-#word-case {
+#word-case, #magnitudes {
     border: none;
     color: rgb(230, 169, 99);
     background-color: transparent;

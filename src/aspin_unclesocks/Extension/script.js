@@ -23,9 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function getRandom(modulus) {
     var cryptoObj = window.crypto; 
-    var array = new Uint32Array(1)
-    cryptoObj.getRandomValues(array)
-    
+    var array = new Uint32Array(1);
+    cryptoObj.getRandomValues(array);
     return array[0]%modulus
 }
 
